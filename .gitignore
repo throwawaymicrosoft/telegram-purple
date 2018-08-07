@@ -12,3 +12,5 @@
 /telegram-purple.nsi
 /win32/
 /contrib/
+.idea
+cmake-build-debug

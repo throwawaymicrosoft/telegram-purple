@@ -511,7 +511,7 @@ static void update_on_ready (struct tgl_state *TLS) {
   }
   
   tgl_do_get_dialog_list (TLS, 200, 0, on_get_dialog_list_done, NULL);
-  tgl_do_get_channels_dialog_list (TLS, 50, 0, on_get_channel_list_done, NULL);
+  //tgl_do_get_channels_dialog_list (TLS, 50, 0, on_get_channel_list_done, NULL);
   tgl_do_update_contact_list (TLS, 0, 0);
 }
 
