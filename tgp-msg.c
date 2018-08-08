@@ -918,13 +918,20 @@ static void tgp_msg_on_loaded_user_full (struct tgl_state *TLS, void *extra, int
 */
 void tgp_msg_recv (struct tgl_state *TLS, struct tgl_message *M, GList *before) {
   debug ("tgp_msg_recv before=%p server_id=%lld", before, M->server_id);
-  debug ("Message from id: %lld %s", tgl_get_peer_id (M->from_id), M->message);
 
   // Блокируем сообщения особо отличившихся
   if (tgl_get_peer_id (M->from_id) == 289564625) {
-      return;
+    return;
   }
-  
+
+  // Блокировка нежелательных конференций
+  if (tgl_get_peer_id (M->to_id) == 1172687286) {
+    return;
+  }
+
+  debug ("Message from id: %lld %s", tgl_get_peer_id (M->from_id), M->message);
+  debug ("Message to id: %lld %s", tgl_get_peer_id (M->to_id), M->message);
+
   if (M->flags & (TGLMF_EMPTY | TGLMF_DELETED)) {
     return;
   }
