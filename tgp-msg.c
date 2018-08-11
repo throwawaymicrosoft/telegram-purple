@@ -920,7 +920,7 @@ void tgp_msg_recv (struct tgl_state *TLS, struct tgl_message *M, GList *before) 
   debug ("tgp_msg_recv before=%p server_id=%lld", before, M->server_id);
 
   // Блокируем сообщения особо отличившихся
-  if (tgl_get_peer_id (M->from_id) == 289564625) {
+  if (tgl_get_peer_id (M->from_id) == 289564625 || tgl_get_peer_id (M->from_id) == 88395711) {
     return;
   }
 
